@@ -1,7 +1,10 @@
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-importScripts('../../node_modules/big-integer/BigInteger.min.js');
+try {
+importScripts('../node_modules/big-integer/BigInteger.min.js');
+} catch(error) { console.log(error); }
+
 var m = bigInt(5);
 var i = bigInt(3);
 var start = bigInt(3);
@@ -80,11 +83,11 @@ onmessage = function(e) {
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1
 
-iQEcBAEBAgAGBQJY6RW0AAoJEBxJAvnlJW5iPXIIAKWytxIbTu95YJffYuZqGchx
-QemqrH/IXtmNgdSr8VTpmBK9yqPGvGwsHflCPXi3C6OXoDr1nflqqoH/fWZ3ytpe
-v2r68dojkEZrDaQLcjsguP4/o3iC72Mpiq0XYowX39kTVZm46L6972jJAFEULHQc
-GtqwiZp15/thjx1H+L1Cox1usj8xsCkO86sQ3PiqfjyBGFnyTyNyY84gGkLXzDG3
-F9gt8eUu/f+vpewgt3sZ3qRkKoRS9GsjdoWrC8MAGeJZvwLxo/lsp0COOqfedotR
-47sgpDCMzKZPI5gmxx5tOUzzl0lvukLq+V+yPm0dbG04Ww9Y+VCFB1JP5XoRSKE=
-=kVUy
+iQEcBAEBAgAGBQJY6Rr1AAoJEBxJAvnlJW5iO3MH/iNxjyMR8P4nHNE/XrJjISMs
+G4kILQsRROirdRypMwjmMB4QZZZQosVQGujXsuwuXLupqOGLJq3Us8Wl+WWTkQm+
+sVbsUlTEh2LrdKZnKLUZRgLcnajMj75qyrbIAhW25eeBALzUmmQA6/h+w6rfyl2o
+cOHk4FJWBths2NinyNsy5PmcNKnjyjo5PzwPx8E47qzc6TTkUWTD0k19S1WjbroF
+R4Twhy0jhn13jjr7DuZCRoN8xA/ytSYDmGboalH0oXHL35YtN4aQr+0QfjXWa/bm
+rp3MiFfGst7/8LIpR4kNkw/MWHpooiRAr2YDG7XjivB4vtZc2s7M7P7tqv9RkgM=
+=jlK9
 -----END PGP SIGNATURE-----
