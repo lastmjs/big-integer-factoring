@@ -1275,13 +1275,13 @@ onmessage = function(e) {
     }
   }
   else if (message.type === 'REQUEST_FOR_WORK') {
-    var p1_startIndex = start;
-    var p1_stopIndex = start.add((stop.subtract(start)).divide(2));
+    var p1_startIndex = start.toString();
+    var p1_stopIndex = (start.add((stop.subtract(start)).divide(2))).toString();
     var p2_startIndex = p1_stopIndex;
-    var p2_stopIndex = stop;
+    var p2_stopIndex = stop.toString();
 
-    start = p1_startIndex;
-    stop = p1_stopIndex;
+    start = bigInt(p1_startIndex);
+    stop = bigInt(p1_stopIndex);
 
     postMessage({
       type: 'WORK_INFO',
