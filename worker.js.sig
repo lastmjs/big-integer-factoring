@@ -1243,9 +1243,9 @@ function requestWork() {
   });
 }
 
-function setSearchParameters(start, finish, product){
-  start = bigInt(start);
-  i = bigInt(start);
+function setSearchParameters(startIndex, finish, product){
+  start = bigInt(startIndex);
+  i = bigInt(startIndex);
   stop = bigInt(finish);
   n = bigInt(product);
 }
@@ -1304,11 +1304,11 @@ onmessage = function(e) {
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1
 
-iQEcBAEBAgAGBQJY6SxXAAoJEBxJAvnlJW5i58oH/iIWQjbphOFdZ9Vo3fXgJ8Am
-wvBvx8/vbtX6FLlBUmdj6i+nJZvMxV/nY6pNoABnsolKSUOQetdjHtMvUvHkJEuh
-poAHLu8fWaIzZTmcaRg14pAADU+SK3DeudHdMQXXEjl9D8gsIjJLB4dfc7hyzk9q
-3vRFKgC+SkzxjYTTV4HRfOrJikMb8odqxpe7aZsS4Jp39sRgiGICGwHqvR3klekN
-HHag2mJhn+gV0g7o7xpsa20PqIlgf9jpypAcllcgWfDuJd0KI0cgsDO3RNZT7cfb
-QmKmofDJQKdcrkjtrRfEYM7IVivKoxhvMIayBY6eOvL4t/fTWOuHJ042iVUrXVw=
-=0wi/
+iQEcBAEBAgAGBQJY6TNyAAoJEBxJAvnlJW5iq5EH/1Em7vVcJt08fzM09FLgRWqU
+7dxU2AWH68DaNTMnldDl2bvRMiYhb5+tITpvIVYS353SzMlz5llFlE42nYkcTj2n
+bhgJUP0PizFRDtvgdGQYsBADDERR9RT8OvvzIfGghpDfcKQf9TZS2Bpl6rltR+X8
+QRLQH9CEXBMki7c3zOFa9ZNtUcSYC1txmS7nsHy6UaVE2gn3u8Ou1O2iQbXtDNOc
+qLqd7iEwPDX2xE3Z2IxqTlSGWfj6EnGpU48yx+Z16BJDGJPa5RpvZNDZNIhRwKOt
+jGoQgYTYHk3sU2llpFTYZfzZhvHvezwb2DmKN1c8I6sW1fwjU2JAXad4PkDQgHA=
+=9T6g
 -----END PGP SIGNATURE-----

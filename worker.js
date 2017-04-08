@@ -1240,9 +1240,9 @@ function requestWork() {
   });
 }
 
-function setSearchParameters(start, finish, product){
-  start = bigInt(start);
-  i = bigInt(start);
+function setSearchParameters(startIndex, finish, product){
+  start = bigInt(startIndex);
+  i = bigInt(startIndex);
   stop = bigInt(finish);
   n = bigInt(product);
 }
