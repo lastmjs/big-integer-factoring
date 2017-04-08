@@ -1273,7 +1273,7 @@ onmessage = function(e) {
       search();
       running = true;
     }
-}9
+}
   else if (message.type === 'REQUEST_FOR_WORK') {
     var p1_startIndex = i.toString();
     var p1_stopIndex = ((i.add(stop)).divide(2)).toString();
