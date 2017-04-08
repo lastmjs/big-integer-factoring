@@ -1267,15 +1267,18 @@ function search(){
 }
 
 onmessage = function(e) {
-  if(e.data.type === 'WORK_INFO'){
-    setSearchParameters(e.data.startIndex, e.data.stopIndex, e.data.product);
-    if(running === false){
+    const message = e.data;
+
+  if (message.type === 'WORK_INFO') {
+    setSearchParameters(message.startIndex, message.stopIndex, message.product);
+    if (running === false) {
       search();
       running = true;
     }
-  } else if(e.data.type === 'REQUEST_FOR_WORK'){
+  }
+  else if (message.type === 'REQUEST_FOR_WORK') {
     var p1_startIndex = start;
-    var p1_stopIndex =  start.add((stop.subtract(start)).divide(2));
+    var p1_stopIndex = start.add((stop.subtract(start)).divide(2));
     var p2_startIndex = p1_stopIndex;
     var p2_stopIndex = stop;
 
@@ -1284,7 +1287,7 @@ onmessage = function(e) {
 
     postMessage({
       type: 'WORK_INFO',
-      peerID: e.data.peerID,
+      peerID: message.peerID,
       thisCurrent: i.toString(),
       thisStart: start.toString(),
       thisStop: stop.toString(),
@@ -1292,18 +1295,19 @@ onmessage = function(e) {
       stopIndex: p2_stopIndex.toString(),
       product: m.toString()
     });
-  } else{
-    console.error("Invalid message type received. Type = " + e.data.type);
+  }
+  else {
+    console.error("Invalid message type received. Type = " + message.type);
   }
 }
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1
 
-iQEcBAEBAgAGBQJY6R8SAAoJEBxJAvnlJW5iFdQH/3qofVIs84iBxlsoyjclN8cf
-ygq4Y8mfw1rHxenDnC5IygrMZQ++Vlfj61Xzq/XrjyaaTU+IkRtBGLkOfyZtY7SY
-JEIs6dVySm6zPnUlGa9gY46Xznhp7hz8dbk4ZC4oVsjGHh6R10R/4fPQIt1c1d8k
-bO/pZOx8EIimebdl8TP+mg+jhDbfWrdfGlT2t8w7hBSyMxcSQDplIV+UtRt7NJ+2
-rzL+MRi4GVjbm9FR8EJBqT3OmLnOTJoVuTZTlkCkyTJWHv3LI3pPnAgxtnhxAFDO
-7RrocjYnQJhSerSylbt7gQ+MLOECcA5TFH+oihThpJ86VJejsRNgxBa97kjZ3ZQ=
-=Nd1D
+iQEcBAEBAgAGBQJY6SCQAAoJEBxJAvnlJW5i6VYH/1m/o2D8xfkA6ZxUEBfJbmct
+4IaQKHkbycCAjGfEwTbDxyRX3KEoPtru2jTJVrVrDaxF1jbw1IY0mQQLaaEoPUns
+MIYusrE4//PcVbZeG8zdHwGFXlQC+7qCRviAdO/AlE+fbFhDHz4ZQ6iDqj0KiIO4
+Q1jtkyLe66UpOq3xGvN4mb8PCr7ZJI/RNj83ymtKWFQnIXl++JPOsCGFaf9B700R
+Dk4pyhqTb919U+JtT5oSgVADhspgG7DgXK+wkghrnbvhoN1fbfcZ3ekTjNxANAUB
+SqCBzrjA+B8iQUDot/pG1nzXcUvYAQ5Bttmc2cS0E21mJ/vfKAUO6xbMNXQCyOo=
+=UIUA
 -----END PGP SIGNATURE-----
