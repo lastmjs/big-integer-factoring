@@ -1236,7 +1236,7 @@ function success(p, q, n) {
 }
 
 function requestWork() {
-    const destinationPeerID = Object.keys(peerIDs)[Math.floor(Math.random() * peerIDs.length)];
+    const destinationPeerID = Object.keys(peerIDs)[Math.floor(Math.random() * Object.keys(peerIDs).length)];
 
     console.log('random number: ', Math.floor(Math.random() * peerIDs.length));
     console.log('peerIDs', peerIDs);
@@ -1274,7 +1274,13 @@ function search() {
 onmessage = function(e) {
     const message = e.data;
 
-    peerIDs[message.peerID] = message.peerID;
+    if (message.peerID === null) {
+        console.log(message);
+    }
+    else {
+        peerIDs[message.peerID] = message.peerID;
+    }
+
 
   if (message.type === 'WORK_INFO') {
       if (bigInt(message.startIndex).greaterOrEquals(bigInt(message.stopIndex))) {
