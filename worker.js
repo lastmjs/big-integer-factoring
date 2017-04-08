@@ -1237,6 +1237,11 @@ function success(p, q, n) {
 
 function requestWork() {
     const destinationPeerID = Object.keys(peerIDs)[Math.floor(Math.random() * peerIDs.length)];
+
+    console.log('random number: ', Math.floor(Math.random() * peerIDs.length));
+    console.log('peerIDs', peerIDs);
+    console.log('requestWork destinationPeerID: ', destinationPeerID);
+
   postMessage({
     type: "REQUEST_FOR_WORK",
     destinationPeerID
