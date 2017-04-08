@@ -1274,8 +1274,7 @@ function search() {
 onmessage = function(e) {
     const message = e.data;
 
-    // The peerID is null on the first message, which is from this node itself (startJob)
-    if (message.peerID !== null) peerIDs[message.peerID] = message.peerID;
+    peerIDs[message.sourcePeerID] = message.sourcePeerID;
 
   if (message.type === 'WORK_INFO') {
       if (bigInt(message.startIndex).greaterOrEquals(bigInt(message.stopIndex))) {
@@ -1300,7 +1299,7 @@ onmessage = function(e) {
 
     postMessage({
       type: 'WORK_INFO',
-      peerID: message.peerID,
+      destinationPeerID: message.peerID,
       thisCurrent: i.toString(),
       thisStart: start.toString(),
       thisStop: stop.toString(),
