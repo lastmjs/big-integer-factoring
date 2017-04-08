@@ -1274,13 +1274,8 @@ function search() {
 onmessage = function(e) {
     const message = e.data;
 
-    if (message.peerID === null) {
-        console.log(message);
-    }
-    else {
-        peerIDs[message.peerID] = message.peerID;
-    }
-
+    // The peerID is null on the first message, which is from this node itself (startJob)
+    if (message.peerID !== null) peerIDs[message.peerID] = message.peerID;
 
   if (message.type === 'WORK_INFO') {
       if (bigInt(message.startIndex).greaterOrEquals(bigInt(message.stopIndex))) {
