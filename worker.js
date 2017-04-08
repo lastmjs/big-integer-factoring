@@ -1219,11 +1219,12 @@ if (typeof module !== "undefined" && module.hasOwnProperty("exports")) {
 }
 // end BigInteger.js library
 
-var n;
-var i;
-var start;
-var stop;
-var running = false;
+let peerIDs = {};
+let n;
+let i;
+let start;
+let stop;
+let running = false;
 
 function success(p, q, n) {
   postMessage({
@@ -1235,8 +1236,10 @@ function success(p, q, n) {
 }
 
 function requestWork() {
+    const destinationPeerID = Object.keys(peerIDs)[Math.floor(Math.random() * peerIds.length)];
   postMessage({
-    type: "REQUEST_FOR_WORK"
+    type: "REQUEST_FOR_WORK",
+    destinationPeerID
   });
 }
 
@@ -1266,18 +1269,25 @@ function search() {
 onmessage = function(e) {
     const message = e.data;
 
+    peers[message.peerID] = peerID;
+
   if (message.type === 'WORK_INFO') {
-    setSearchParameters(message.startIndex, message.stopIndex, message.product);
-    if (running === false) {
-      search();
-      running = true;
-    }
+      if (bigInt(message.startIndex).greaterOrEquals(bigInt(message.stopIndex))) {
+          requestWork();
+      }
+      else {
+          setSearchParameters(message.startIndex, message.stopIndex, message.product);
+          if (running === false) {
+              search();
+              running = true;
+          }
+      }
 }
   else if (message.type === 'REQUEST_FOR_WORK') {
-    var p1_startIndex = i.toString();
-    var p1_stopIndex = ((i.add(stop)).divide(2)).toString();
-    var p2_startIndex = p1_stopIndex;
-    var p2_stopIndex = stop.toString();
+    let p1_startIndex = i.toString();
+    let p1_stopIndex = ((i.add(stop)).divide(2)).toString();
+    let p2_startIndex = p1_stopIndex;
+    let p2_stopIndex = stop.toString();
 
     start = bigInt(p1_startIndex);
     stop = bigInt(p1_stopIndex);
