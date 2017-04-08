@@ -1225,19 +1225,19 @@ var start = bigInt(3);
 var stop = bigInt(5);
 var running = false;
 
-function success(p, q, m){
+function success(p, q, m) {
   postMessage({
-    type: "SOLUTION_FOUND",
+    type: 'SOLUTION_FOUND',
     p: p.toString(),
     q: q.toString(),
     n: m.toString()
   });
 }
 
-function requestWork(){
-  postMessage(JSON.stringify({
+function requestWork() {
+  postMessage({
     type: "REQUEST_FOR_WORK"
-  }));
+  });
 }
 
 function setSearchParameters(start, finish, product){
@@ -1247,18 +1247,19 @@ function setSearchParameters(start, finish, product){
   m = bigInt(product);
 }
 
-function search(){
-  if(i.lesser(stop)){
-    if(m.isDivisibleBy(i)){
+function search() {
+  if (i.lesser(stop)) {
+    if (m.isDivisibleBy(i)) {
       console.log(i.toString() + " is a factor of m");
       success(i, m.divide(i), m);
       return;
-    }else{
+    }
+    else {
       i = i.plus(2)
       setTimeout(search);
     }
   }
-  else{
+  else {
     requestWork();
   }
 }
