@@ -1252,7 +1252,6 @@ function search() {
 
   if (i.lesser(stop)) {
     if (n.isDivisibleBy(i)) {
-      console.log(i.toString() + " is a factor of n");
       success(i, n.divide(i), n);
       return;
     }
@@ -1281,12 +1280,6 @@ onmessage = function(e) {
     var p1_stopIndex = ((i.add(stop)).divide(2)).toString();
     var p2_startIndex = p1_stopIndex;
     var p2_stopIndex = stop.toString();
-
-    console.log('p1_startIndex', p1_startIndex);
-    console.log('p1_stopIndex', p1_stopIndex);
-
-    console.log('p2_startIndex', p2_startIndex);
-    console.log('p2_stopIndex', p2_stopIndex);
 
     start = bigInt(p1_startIndex);
     stop = bigInt(p1_stopIndex);

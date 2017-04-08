@@ -1255,7 +1255,6 @@ function search() {
 
   if (i.lesser(stop)) {
     if (n.isDivisibleBy(i)) {
-      console.log(i.toString() + " is a factor of n");
       success(i, n.divide(i), n);
       return;
     }
@@ -1285,12 +1284,6 @@ onmessage = function(e) {
     var p2_startIndex = p1_stopIndex;
     var p2_stopIndex = stop.toString();
 
-    console.log('p1_startIndex', p1_startIndex);
-    console.log('p1_stopIndex', p1_stopIndex);
-
-    console.log('p2_startIndex', p2_startIndex);
-    console.log('p2_stopIndex', p2_stopIndex);
-
     start = bigInt(p1_startIndex);
     stop = bigInt(p1_stopIndex);
 
@@ -1312,11 +1305,11 @@ onmessage = function(e) {
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1
 
-iQEcBAEBAgAGBQJY6UNwAAoJEBxJAvnlJW5ipcQIAKgCOcDYFv5vtA2cHE5m+vAY
-kPJ903UlD91ECOn9wOL3hxVPkoHBM6qFz9DEgxNWVtoIycavc4mLFd7IoXytMbBk
-eIiv8wheSFnpQp/+uvsHFNXqFiyxYwbr9zKdfGV8KSOHWNvMEvnykZiRnpjJn4oW
-lfw3UvDl3Nkia3AW3O8m8ZKMSwjkMtB3Nlrmo5wtAIlUVMVJNe0PPeFIAvkqiVnA
-L0QFaqs0HiPmiXugRjxXpNNV48La5OpVbB/9agvCWDrdllVuFx+bUAXf1/FqpxmW
-D65+2MXhU22hJep+DRB2ER8xvi9h0G3HDNbAc4cNrayZeJls7YSCMSRSwHgC0R0=
-=+wcb
+iQEcBAEBAgAGBQJY6UWWAAoJEBxJAvnlJW5iYXwH/jQIJe7dmmyVrZ/dGCS9FDGp
+CaztYXA5xpBl2rqKfcCtndQBpSiimpKwO75GVkRQkeTolobx0ZguejImI/M5BQzg
+QVMJiLktV5F5jxnxzD8ktZG9jZrQ3yl7r5WAu8oPL78f47y/7wLZbJSMzlTcszj9
+6k9UUSgqlEiFnmn+C+BpsMmRDSsrqJek8sTBkvxTNALV6XC6iSRXArXggulZbWkz
+mbVMvKsTvMyscOpTvjhwtt+PrALFCVneUFOBBrHdV1KPwVF9SSaDHjpreNLIODtB
+nmdhqd7tjWbk5RQwbbuwAe5P0/ZQd78rkJSkPD6yw0mYGak6AViek83FAyQgdT8=
+=zhBB
 -----END PGP SIGNATURE-----
