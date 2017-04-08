@@ -1,7 +1,7 @@
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-// The library below is in the public domain
+// The BigInteger.js library below is in the public domain
 var bigInt = (function (undefined) {
     "use strict";
 
@@ -1220,6 +1220,7 @@ var bigInt = (function (undefined) {
 if (typeof module !== "undefined" && module.hasOwnProperty("exports")) {
     module.exports = bigInt;
 }
+// end BigInteger.js library
 
 var m = bigInt(5);
 var i = bigInt(3);
@@ -1298,11 +1299,11 @@ onmessage = function(e) {
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1
 
-iQEbBAEBAgAGBQJY6R6DAAoJEBxJAvnlJW5ibX8H9RPgLbegyI3kjV3E/ijI/aUH
-ILLfNE2wg6iKNDGm2vqOvGrfnzLcOVeskqcmosdSEg83xLqm0ONMlwWpyaI2vOJv
-3scCw5BgELfjOJYVa9dIo20KVSFQwH1WxWBjeNixFCPPl7UVhACK6WP9x64jL8A4
-aJCIxqQjR/xRHqqwOlmaU88jj5LFgoIVX0VLxkLDZsgV2yIcEWdntE1k6kzED1n0
-kYOVfloYNyKmULv+IRuRp7FFx3144QrBXiStq/aBVZh2uiYWIScyYumiFIpyxwRb
-h4iSesuDO8VrIUe1t0ZiJQyOZQhb2DV79shE45b/93c/KpUtTac5n8TUo2rf2Q==
-=mo6X
+iQEcBAEBAgAGBQJY6R8SAAoJEBxJAvnlJW5iFdQH/3qofVIs84iBxlsoyjclN8cf
+ygq4Y8mfw1rHxenDnC5IygrMZQ++Vlfj61Xzq/XrjyaaTU+IkRtBGLkOfyZtY7SY
+JEIs6dVySm6zPnUlGa9gY46Xznhp7hz8dbk4ZC4oVsjGHh6R10R/4fPQIt1c1d8k
+bO/pZOx8EIimebdl8TP+mg+jhDbfWrdfGlT2t8w7hBSyMxcSQDplIV+UtRt7NJ+2
+rzL+MRi4GVjbm9FR8EJBqT3OmLnOTJoVuTZTlkCkyTJWHv3LI3pPnAgxtnhxAFDO
+7RrocjYnQJhSerSylbt7gQ+MLOECcA5TFH+oihThpJ86VJejsRNgxBa97kjZ3ZQ=
+=Nd1D
 -----END PGP SIGNATURE-----

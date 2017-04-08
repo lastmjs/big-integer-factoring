@@ -1,4 +1,4 @@
-// The library below is in the public domain
+// The BigInteger.js library below is in the public domain
 var bigInt = (function (undefined) {
     "use strict";
 
@@ -1217,6 +1217,7 @@ var bigInt = (function (undefined) {
 if (typeof module !== "undefined" && module.hasOwnProperty("exports")) {
     module.exports = bigInt;
 }
+// end BigInteger.js library
 
 var m = bigInt(5);
 var i = bigInt(3);
