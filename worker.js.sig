@@ -56,7 +56,7 @@ onmessage = function(e) {
       search();
       running = true;
     }
-  } else if(e.data.type === 'WORK_REQUEST'){
+  } else if(e.data.type === 'REQUEST_FOR_WORK'){
     var p1_startIndex = start;
     var p1_stopIndex =  start.add((stop.subtract(start)).divide(2));
     var p2_startIndex = p1_stopIndex;
@@ -68,7 +68,6 @@ onmessage = function(e) {
     postMessage({
       type: 'WORK_INFO',
       peerID: e.data.peerID,
-      connectionType: e.data.connectionType,
       thisCurrent: i.toString(),
       thisStart: start.toString(),
       thisStop: stop.toString(),
@@ -83,11 +82,11 @@ onmessage = function(e) {
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1
 
-iQEcBAEBAgAGBQJY6RuYAAoJEBxJAvnlJW5iEHwH/2Wb8oGnn/NRjF84d9rFT7sB
-bVpoZ5cngw3jY38zVWgrbShETqs9yPdhWGZEnnfO0Q3gEmGs5tfiahQT4JjuMFOj
-FNrMRq7PQDQ2ysmjO3H10H9Okv6mBQhfhkna9EQTlefex8wGaYtXlFLN1GrK5v/U
-VEnWcX81i3C6gFWETL2T8WNIBC2ukGXsB3zCyOaCZ2vU/n2JNH/UFWL0dQ74Vr8A
-Ks4i2R9qDeTDlTK6l5/vMa1QT4Wq12P6ouHgr9wdH3QwpmLmF6Z3ja4vC8c5Du7G
-xHDoPpKUNKVKdjnq0ws1srw6BRuaZZQltvl0+JZofNUO2mngNW9rxiAbZioxw/M=
-=Wsrz
+iQEcBAEBAgAGBQJY6Ry7AAoJEBxJAvnlJW5iEHEH/i3HO6KsVphYsAR89y8s88IN
+yqTnTWW4dKBVXJrtSRIlFUzvJ2m4W84E42/0433+eRYvVDwutQ9cHL2EJ969qGTb
+h46QpEVxzTZmiQicerG/GQw84/dQ8l3UXC6+45h16DsW1fapY5/WdZ9Mbn3iP79X
+/+LHZwIiqRtotjRVyyTaqEjpvsyorg8+rMiAM8rbCRt1VPlHGfN+9vWR5We+WLDr
+9Y22ZJynrp/V1WKcqNrjYMTWbRUGZwQuOFAB/c9zZxcpd4guUKtqA/WiXwiT8m7V
+ILUi+THVlmS7jR8Gmmj0imRglhpP3BZ0Lh37ANBQQ+hTtCMTKdX1UUe3WejXKg0=
+=8bO5
 -----END PGP SIGNATURE-----

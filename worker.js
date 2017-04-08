@@ -53,7 +53,7 @@ onmessage = function(e) {
       search();
       running = true;
     }
-  } else if(e.data.type === 'WORK_REQUEST'){
+  } else if(e.data.type === 'REQUEST_FOR_WORK'){
     var p1_startIndex = start;
     var p1_stopIndex =  start.add((stop.subtract(start)).divide(2));
     var p2_startIndex = p1_stopIndex;
@@ -65,7 +65,6 @@ onmessage = function(e) {
     postMessage({
       type: 'WORK_INFO',
       peerID: e.data.peerID,
-      connectionType: e.data.connectionType,
       thisCurrent: i.toString(),
       thisStart: start.toString(),
       thisStop: stop.toString(),
