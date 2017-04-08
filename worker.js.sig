@@ -1222,46 +1222,47 @@ if (typeof module !== "undefined" && module.hasOwnProperty("exports")) {
 }
 // end BigInteger.js library
 
-var m = bigInt(5);
-var i = bigInt(3);
-var start = bigInt(3);
-var stop = bigInt(5);
+var n;
+var i;
+var start;
+var stop;
 var running = false;
 
-function success(p, q, m){
+function success(p, q, n) {
   postMessage({
-    type: "SOLUTION_FOUND",
+    type: 'SOLUTION_FOUND',
     p: p.toString(),
     q: q.toString(),
-    n: m.toString()
+    n: n.toString()
   });
 }
 
-function requestWork(){
-  postMessage(JSON.stringify({
+function requestWork() {
+  postMessage({
     type: "REQUEST_FOR_WORK"
-  }));
+  });
 }
 
 function setSearchParameters(start, finish, product){
   start = bigInt(start);
   i = bigInt(start);
   stop = bigInt(finish);
-  m = bigInt(product);
+  n = bigInt(product);
 }
 
-function search(){
-  if(i.lesser(stop)){
-    if(m.isDivisibleBy(i)){
-      console.log(i.toString() + " is a factor of m");
-      success(i, m.divide(i), m);
+function search() {
+  if (i.lesser(stop)) {
+    if (n.isDivisibleBy(i)) {
+      console.log(i.toString() + " is a factor of n");
+      success(i, n.divide(i), n);
       return;
-    }else{
+    }
+    else {
       i = i.plus(2)
       setTimeout(search);
     }
   }
-  else{
+  else {
     requestWork();
   }
 }
@@ -1293,7 +1294,7 @@ onmessage = function(e) {
       thisStop: stop.toString(),
       startIndex: p2_startIndex.toString(),
       stopIndex: p2_stopIndex.toString(),
-      product: m.toString()
+      product: n.toString()
     });
   }
   else {
@@ -1303,11 +1304,11 @@ onmessage = function(e) {
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1
 
-iQEcBAEBAgAGBQJY6SCQAAoJEBxJAvnlJW5i6VYH/1m/o2D8xfkA6ZxUEBfJbmct
-4IaQKHkbycCAjGfEwTbDxyRX3KEoPtru2jTJVrVrDaxF1jbw1IY0mQQLaaEoPUns
-MIYusrE4//PcVbZeG8zdHwGFXlQC+7qCRviAdO/AlE+fbFhDHz4ZQ6iDqj0KiIO4
-Q1jtkyLe66UpOq3xGvN4mb8PCr7ZJI/RNj83ymtKWFQnIXl++JPOsCGFaf9B700R
-Dk4pyhqTb919U+JtT5oSgVADhspgG7DgXK+wkghrnbvhoN1fbfcZ3ekTjNxANAUB
-SqCBzrjA+B8iQUDot/pG1nzXcUvYAQ5Bttmc2cS0E21mJ/vfKAUO6xbMNXQCyOo=
-=UIUA
+iQEcBAEBAgAGBQJY6SxXAAoJEBxJAvnlJW5i58oH/iIWQjbphOFdZ9Vo3fXgJ8Am
+wvBvx8/vbtX6FLlBUmdj6i+nJZvMxV/nY6pNoABnsolKSUOQetdjHtMvUvHkJEuh
+poAHLu8fWaIzZTmcaRg14pAADU+SK3DeudHdMQXXEjl9D8gsIjJLB4dfc7hyzk9q
+3vRFKgC+SkzxjYTTV4HRfOrJikMb8odqxpe7aZsS4Jp39sRgiGICGwHqvR3klekN
+HHag2mJhn+gV0g7o7xpsa20PqIlgf9jpypAcllcgWfDuJd0KI0cgsDO3RNZT7cfb
+QmKmofDJQKdcrkjtrRfEYM7IVivKoxhvMIayBY6eOvL4t/fTWOuHJ042iVUrXVw=
+=0wi/
 -----END PGP SIGNATURE-----
