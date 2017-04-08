@@ -1269,7 +1269,7 @@ function search() {
 onmessage = function(e) {
     const message = e.data;
 
-    peerIDs[message.peerID] = peerID;
+    peerIDs[message.peerID] = message.peerID;
 
   if (message.type === 'WORK_INFO') {
       if (bigInt(message.startIndex).greaterOrEquals(bigInt(message.stopIndex))) {
