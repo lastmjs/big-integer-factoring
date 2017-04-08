@@ -1276,10 +1276,10 @@ onmessage = function(e) {
       search();
       running = true;
     }
-  }
+}9
   else if (message.type === 'REQUEST_FOR_WORK') {
-    var p1_startIndex = start.toString();
-    var p1_stopIndex = (start.add((stop.subtract(start)).divide(2))).toString();
+    var p1_startIndex = i.toString();
+    var p1_stopIndex = ((i.add(stop)).divide(2)).toString();
     var p2_startIndex = p1_stopIndex;
     var p2_stopIndex = stop.toString();
 
@@ -1304,11 +1304,11 @@ onmessage = function(e) {
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1
 
-iQEcBAEBAgAGBQJY6TrLAAoJEBxJAvnlJW5ie1MIAK08Mzw4f4CmmIA86YF6mfJu
-lOLO9f3BrhQF3sg03IoXX9Dbb/pv2yRFGtJcTmlAugudxs71SUrBPy1hMrPqMyvQ
-DPObPfuYPYiHXDFUDtEWhpDV51OdTaNSuvyL4vwzspiIAh9AUJ4SqcgZlV4wPJSu
-eBZn8zmKzJO06/ElIcyUEHfma8hu1vKTBVrlo2D5BOWpgGVYnqMN+G3/y7fVgHRp
-sFDiuRzjH3zcaWIJoExZmo3+Z1bHeBQnPplfk8laFscML/HkS1UE4z8svhPydIs6
-Q4/8NZ9KdwU01L6Fn3y1s6SpgbBSabhL4Jm54YhKLxVUE+MACx8xG1XSZxosvzs=
-=YTv4
+iQEcBAEBAgAGBQJY6T6FAAoJEBxJAvnlJW5iog0H+wYx1opzkXhSYyFcw7iCeBdw
+ylvfNuGbXsTHHuonxK3JExXtim32Oup/8B5k3LoNZlDQ+0tWRg2R0PrKMx/hqTV+
+vzwkyeDNcERgyRyIJl4UxqmJBdN4EAQZfSzCtkig4jUnYnw0W3xPcrFzRute2lOC
+m5hY7iDNhtXY/mDPjVqTarz4ZVE1CfGveuibsLQJrtih9nMmVL1e5FkmqXX2o9hV
+bUvQsxoWKqxORfYTPQg46sAGvFI/hsf2nx8D+p4zPw9QcG1QyCueCzaFD+9TFYn5
+mF4v5OhaS8oDU8bjpaD3JP6ylUB0OLa5u1GMde5Ztv9+XtS/XyBMbpQsNUXmYdQ=
+=DusQ
 -----END PGP SIGNATURE-----
