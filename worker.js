@@ -1248,8 +1248,6 @@ function setSearchParameters(startIndex, finish, product){
 }
 
 function search() {
-    console.log('i', i);
-
   if (i.lesser(stop)) {
     if (n.isDivisibleBy(i)) {
       success(i, n.divide(i), n);
