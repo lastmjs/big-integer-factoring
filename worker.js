@@ -1219,18 +1219,18 @@ if (typeof module !== "undefined" && module.hasOwnProperty("exports")) {
 }
 // end BigInteger.js library
 
-var m = bigInt(5);
-var i = bigInt(3);
-var start = bigInt(3);
-var stop = bigInt(5);
+var n;
+var i;
+var start;
+var stop;
 var running = false;
 
-function success(p, q, m) {
+function success(p, q, n) {
   postMessage({
     type: 'SOLUTION_FOUND',
     p: p.toString(),
     q: q.toString(),
-    n: m.toString()
+    n: n.toString()
   });
 }
 
@@ -1244,14 +1244,14 @@ function setSearchParameters(start, finish, product){
   start = bigInt(start);
   i = bigInt(start);
   stop = bigInt(finish);
-  m = bigInt(product);
+  n = bigInt(product);
 }
 
 function search() {
   if (i.lesser(stop)) {
-    if (m.isDivisibleBy(i)) {
-      console.log(i.toString() + " is a factor of m");
-      success(i, m.divide(i), m);
+    if (n.isDivisibleBy(i)) {
+      console.log(i.toString() + " is a factor of n");
+      success(i, n.divide(i), n);
       return;
     }
     else {
@@ -1291,7 +1291,7 @@ onmessage = function(e) {
       thisStop: stop.toString(),
       startIndex: p2_startIndex.toString(),
       stopIndex: p2_stopIndex.toString(),
-      product: m.toString()
+      product: n.toString()
     });
   }
   else {
