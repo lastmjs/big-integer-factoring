@@ -1264,15 +1264,18 @@ function search(){
 }
 
 onmessage = function(e) {
-  if(e.data.type === 'WORK_INFO'){
-    setSearchParameters(e.data.startIndex, e.data.stopIndex, e.data.product);
-    if(running === false){
+    const message = e.data;
+
+  if (message.type === 'WORK_INFO') {
+    setSearchParameters(message.startIndex, message.stopIndex, message.product);
+    if (running === false) {
       search();
       running = true;
     }
-  } else if(e.data.type === 'REQUEST_FOR_WORK'){
+  }
+  else if (message.type === 'REQUEST_FOR_WORK') {
     var p1_startIndex = start;
-    var p1_stopIndex =  start.add((stop.subtract(start)).divide(2));
+    var p1_stopIndex = start.add((stop.subtract(start)).divide(2));
     var p2_startIndex = p1_stopIndex;
     var p2_stopIndex = stop;
 
@@ -1281,7 +1284,7 @@ onmessage = function(e) {
 
     postMessage({
       type: 'WORK_INFO',
-      peerID: e.data.peerID,
+      peerID: message.peerID,
       thisCurrent: i.toString(),
       thisStart: start.toString(),
       thisStop: stop.toString(),
@@ -1289,7 +1292,8 @@ onmessage = function(e) {
       stopIndex: p2_stopIndex.toString(),
       product: m.toString()
     });
-  } else{
-    console.error("Invalid message type received. Type = " + e.data.type);
+  }
+  else {
+    console.error("Invalid message type received. Type = " + message.type);
   }
 }
