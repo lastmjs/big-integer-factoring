@@ -1,4 +1,7 @@
-importScripts('../../node_modules/big-integer/BigInteger.min.js');
+try {
+importScripts('../node_modules/big-integer/BigInteger.min.js');
+} catch(error) { console.log(error); }
+
 var m = bigInt(5);
 var i = bigInt(3);
 var start = bigInt(3);
