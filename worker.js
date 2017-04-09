@@ -1256,7 +1256,9 @@ function setSearchParameters(startIndex, finish, product){
 }
 
 function search() {
-    console.log('i: ', i);
+    if (i.isDivisibleBy(100)) {
+        console.log('i: ', i);
+    }
 
   if (i.lesser(stop)) {
     if (n.isDivisibleBy(i)) {
