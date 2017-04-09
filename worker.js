@@ -1303,7 +1303,7 @@ onmessage = function(e) {
 
     postMessage({
       type: 'WORK_INFO',
-      destinationPeerID: message.peerID,
+      destinationPeerID: message.sourcePeerID,
       thisCurrent: i.toString(),
       thisStart: start.toString(),
       thisStop: stop.toString(),
