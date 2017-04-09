@@ -1269,6 +1269,7 @@ function search() {
     }
   }
   else {
+      running = false;
     requestWork();
   }
 }
