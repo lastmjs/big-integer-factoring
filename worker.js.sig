@@ -1222,11 +1222,12 @@ if (typeof module !== "undefined" && module.hasOwnProperty("exports")) {
 }
 // end BigInteger.js library
 
-var n;
-var i;
-var start;
-var stop;
-var running = false;
+let peerIDs = {};
+let n;
+let i;
+let start;
+let stop;
+let running = false;
 
 function success(p, q, n) {
   postMessage({
@@ -1238,8 +1239,15 @@ function success(p, q, n) {
 }
 
 function requestWork() {
+    const destinationPeerID = Object.keys(peerIDs)[Math.floor(Math.random() * Object.keys(peerIDs).length)];
+
+    console.log('random number: ', Math.floor(Math.random() * Object.keys(peerIDs).length));
+    console.log('peerIDs', peerIDs);
+    console.log('requestWork destinationPeerID: ', destinationPeerID);
+
   postMessage({
-    type: "REQUEST_FOR_WORK"
+    type: "REQUEST_FOR_WORK",
+    destinationPeerID
   });
 }
 
@@ -1251,7 +1259,9 @@ function setSearchParameters(startIndex, finish, product){
 }
 
 function search() {
-    console.log('i', i);
+    if (i.isDivisibleBy(100)) {
+        console.log('i: ', i);
+    }
 
   if (i.lesser(stop)) {
     if (n.isDivisibleBy(i)) {
@@ -1264,6 +1274,7 @@ function search() {
     }
   }
   else {
+      running = false;
     requestWork();
   }
 }
@@ -1271,25 +1282,37 @@ function search() {
 onmessage = function(e) {
     const message = e.data;
 
-  if (message.type === 'WORK_INFO') {
-    setSearchParameters(message.startIndex, message.stopIndex, message.product);
-    if (running === false) {
-      search();
-      running = true;
+    if (message.sourcePeerID !== 'ROOT_NODE') {
+        peerIDs[message.sourcePeerID] = message.sourcePeerID;
     }
+
+
+  if (message.type === 'WORK_INFO') {
+      if (bigInt(message.startIndex).greaterOrEquals(bigInt(message.stopIndex))) {
+          requestWork();
+      }
+      else {
+          setSearchParameters(message.startIndex, message.stopIndex, message.product);
+          if (running === false) {
+              search();
+              running = true;
+          }
+      }
 }
   else if (message.type === 'REQUEST_FOR_WORK') {
-    var p1_startIndex = i.toString();
-    var p1_stopIndex = ((i.add(stop)).divide(2)).toString();
-    var p2_startIndex = p1_stopIndex;
-    var p2_stopIndex = stop.toString();
+      console.log('REQUEST_FOR_WORK i: ', i);
+
+    let p1_startIndex = i.toString();
+    let p1_stopIndex = ((i.add(stop)).divide(2)).toString();
+    let p2_startIndex = p1_stopIndex;
+    let p2_stopIndex = stop.toString();
 
     start = bigInt(p1_startIndex);
     stop = bigInt(p1_stopIndex);
 
     postMessage({
       type: 'WORK_INFO',
-      peerID: message.peerID,
+      destinationPeerID: message.sourcePeerID,
       thisCurrent: i.toString(),
       thisStart: start.toString(),
       thisStop: stop.toString(),
@@ -1305,11 +1328,11 @@ onmessage = function(e) {
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1
 
-iQEcBAEBAgAGBQJY6UWWAAoJEBxJAvnlJW5iYXwH/jQIJe7dmmyVrZ/dGCS9FDGp
-CaztYXA5xpBl2rqKfcCtndQBpSiimpKwO75GVkRQkeTolobx0ZguejImI/M5BQzg
-QVMJiLktV5F5jxnxzD8ktZG9jZrQ3yl7r5WAu8oPL78f47y/7wLZbJSMzlTcszj9
-6k9UUSgqlEiFnmn+C+BpsMmRDSsrqJek8sTBkvxTNALV6XC6iSRXArXggulZbWkz
-mbVMvKsTvMyscOpTvjhwtt+PrALFCVneUFOBBrHdV1KPwVF9SSaDHjpreNLIODtB
-nmdhqd7tjWbk5RQwbbuwAe5P0/ZQd78rkJSkPD6yw0mYGak6AViek83FAyQgdT8=
-=zhBB
+iQEcBAEBAgAGBQJY6Zb/AAoJEBxJAvnlJW5iGGYH/io9LN7oh7Zif1vFAJs7uelf
+NsKyS1uCHxpnkTwRhWsDOCbCHLtcgLn8SmeSpZmm6ymalUBmtxryUODWHTsuN9jR
+RklsiZBT6PKk+rzcmTZLbCk8fgM0zu7N6nHfmVIje2jUKxy/WCPY91CvAl/U6L27
+rY3O1xQ9oeF+dMEhwUB7TFfFReVdsoLFZCoStWySMpp731i3+gzTwTpyonXoz/Es
+FPVzlMnlEmHJDWjQ9b2SKI5lfHyIg/C4sHFAriRlGY2PP6aSUqnrl/t2JAPsMMZZ
+D1cm+WeTZd5Mm8tMJpK9fJego4WxuYbGZE6GmmXCRHEYALZC14Rd15Pz0yj069w=
+=b4Y8
 -----END PGP SIGNATURE-----
