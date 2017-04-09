@@ -1279,7 +1279,10 @@ function search() {
 onmessage = function(e) {
     const message = e.data;
 
-    peerIDs[message.sourcePeerID] = message.sourcePeerID;
+    if (message.sourcePeerID !== 'ROOT_NODE') {
+        peerIDs[message.sourcePeerID] = message.sourcePeerID;
+    }
+
 
   if (message.type === 'WORK_INFO') {
       if (bigInt(message.startIndex).greaterOrEquals(bigInt(message.stopIndex))) {
