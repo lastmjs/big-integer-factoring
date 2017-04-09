@@ -1238,7 +1238,7 @@ function success(p, q, n) {
 function requestWork() {
     const destinationPeerID = Object.keys(peerIDs)[Math.floor(Math.random() * Object.keys(peerIDs).length)];
 
-    console.log('random number: ', Math.floor(Math.random() * peerIDs.length));
+    console.log('random number: ', Math.floor(Math.random() * Object.keys(peerIDs).length));
     console.log('peerIDs', peerIDs);
     console.log('requestWork destinationPeerID: ', destinationPeerID);
 
@@ -1256,6 +1256,8 @@ function setSearchParameters(startIndex, finish, product){
 }
 
 function search() {
+    console.log('i: ', i);
+
   if (i.lesser(stop)) {
     if (n.isDivisibleBy(i)) {
       success(i, n.divide(i), n);
@@ -1289,6 +1291,8 @@ onmessage = function(e) {
       }
 }
   else if (message.type === 'REQUEST_FOR_WORK') {
+      console.log('REQUEST_FOR_WORK i: ', i);
+
     let p1_startIndex = i.toString();
     let p1_stopIndex = ((i.add(stop)).divide(2)).toString();
     let p2_startIndex = p1_stopIndex;
